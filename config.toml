@@ -1,0 +1,26 @@
+# youtube-at-home config. Every key is optional.
+
+# Directories that hold video files ("<title> [<video id>].<ext>").
+# All of them are searched; new downloads go to the first one that currently exists,
+# so an unplugged external drive is simply skipped.
+# Relative paths are relative to this file, ~ is expanded.
+media_dirs = ["media"]
+
+# Soft budget for downloaded videos: `yt du` and `yt get` warn when it is exceeded.
+max_disk_gb = 3
+
+# yt-dlp format selector. The default prefers H.264 <=1080p because QuickTime can't play VP9/AV1.
+# format = "bv*[vcodec^=avc1][height<=1080]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b"
+
+# A random one is used for each yt-dlp invocation. Empty = no proxy.
+# proxies = ["socks5://127.0.0.1:1080"]
+
+# Command used to run yt-dlp. By default this is the yt-dlp git submodule
+# (run with python3), or `ytdlp` from $PATH if the submodule isn't checked out.
+# ytdlp = "ytdlp"
+# extra_args = ["--embed-subs", "--sub-langs", "en.*"]
+
+# Optional descriptions. A watchlist also exists as soon as any video is in it.
+[watchlists]
+physics = "statphys & beyond"
+math = ""

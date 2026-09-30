@@ -1,0 +1,298 @@
+{
+  "videos": [
+    {
+      "id": "j0wJBEZdwLs",
+      "url": "https://www.youtube.com/watch?v=j0wJBEZdwLs",
+      "title": "But what is a Laplace Transform?",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 2080,
+      "upload_date": "2025-10-12",
+      "size": 152567677,
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "zOmhHE2xctw",
+      "url": "https://www.youtube.com/watch?v=zOmhHE2xctw",
+      "title": "The Core Equation Of Neuroscience",
+      "channel": "Artem Kirsanov",
+      "channel_id": "UCR2uRTQ53V_egXKFflMMaaw",
+      "duration": 1395,
+      "upload_date": "2024-11-02",
+      "size": 135856628,
+      "lists": [
+        "biology"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "-Y0XL-K0jy0",
+      "url": "https://www.youtube.com/watch?v=-Y0XL-K0jy0",
+      "title": "The Hydrogen Atom, Part 1 of 3: Intro to Quantum Physics",
+      "channel": "Richard Behiel",
+      "channel_id": "UCogE_pJuDs_xLtDVcp4W_UA",
+      "duration": 1114,
+      "upload_date": "2023-06-02",
+      "size": 168229749,
+      "lists": [
+        "physics"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "acN7E7AUHPk",
+      "url": "https://www.youtube.com/watch?v=acN7E7AUHPk",
+      "title": "The Hydrogen Atom, Part 2 of 3: Solving the Schrodinger Equation",
+      "channel": "Richard Behiel",
+      "channel_id": "UCogE_pJuDs_xLtDVcp4W_UA",
+      "duration": 2759,
+      "upload_date": "2023-07-20",
+      "size": 522088630,
+      "lists": [
+        "physics"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "-j8PzkZ70Lg",
+      "url": "https://www.youtube.com/watch?v=-j8PzkZ70Lg",
+      "title": "The Physics of Euler's Formula | Laplace Transform Prelude",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 1669,
+      "upload_date": "2025-10-05",
+      "size": 96100202,
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "q23HWXOLfaw",
+      "url": "https://www.youtube.com/watch?v=q23HWXOLfaw",
+      "title": "What's the big deal with the Yoneda Lemma?",
+      "channel": "Sheafification of G",
+      "channel_id": "UC6_J0wZdqcoRVs0Mck922SQ",
+      "duration": 812,
+      "upload_date": "2025-07-18",
+      "size": 30870251,
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "notes": "[2026-09-30] revisit after category theory ch.2",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "WUvTyaaNkzM",
+      "url": "https://www.youtube.com/watch?v=WUvTyaaNkzM",
+      "title": "The essence of calculus",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 1024,
+      "upload_date": "2017-04-28",
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "9vKqVkMQHKk",
+      "url": "https://www.youtube.com/watch?v=9vKqVkMQHKk",
+      "title": "The paradox of the derivative | Chapter 2, Essence of calculus",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 1010,
+      "upload_date": "2017-04-29",
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "S0_qX4VJhMQ",
+      "url": "https://www.youtube.com/watch?v=S0_qX4VJhMQ",
+      "title": "Derivative formulas through geometry | Chapter 3, Essence of calculus",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 1053,
+      "upload_date": "2017-04-30",
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "YG15m2VwSjA",
+      "url": "https://www.youtube.com/watch?v=YG15m2VwSjA",
+      "title": "Visualizing the chain rule and product rule | Chapter 4, Essence of calculus",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 956,
+      "upload_date": "2017-05-01",
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "m2MIpDrF7Es",
+      "url": "https://www.youtube.com/watch?v=m2MIpDrF7Es",
+      "title": "What's so special about Euler's number e? | Chapter 5, Essence of calculus",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 830,
+      "upload_date": "2017-05-02",
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "qb40J4N1fa4",
+      "url": "https://www.youtube.com/watch?v=qb40J4N1fa4",
+      "title": "Implicit differentiation, what's going on here? | Chapter 6, Essence of calculus",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 933,
+      "upload_date": "2017-05-03",
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "kfF40MiS7zA",
+      "url": "https://www.youtube.com/watch?v=kfF40MiS7zA",
+      "title": "Limits, L'Hôpital's rule, and epsilon delta definitions | Chapter 7, Essence of calculus",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 1106,
+      "upload_date": "2017-05-04",
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "rfG8ce4nNh0",
+      "url": "https://www.youtube.com/watch?v=rfG8ce4nNh0",
+      "title": "Integration and the fundamental theorem of calculus | Chapter 8, Essence of calculus",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 1246,
+      "upload_date": "2017-05-05",
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "FnJqaIESC2s",
+      "url": "https://www.youtube.com/watch?v=FnJqaIESC2s",
+      "title": "What does area have to do with slope? | Chapter 9, Essence of calculus",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 759,
+      "upload_date": "2017-05-06",
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "BLkz5LGWihw",
+      "url": "https://www.youtube.com/watch?v=BLkz5LGWihw",
+      "title": "Higher order derivatives | Chapter 10, Essence of calculus",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 338,
+      "upload_date": "2017-05-07",
+      "size": 11211772,
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "3d6DsjIBzJ4",
+      "url": "https://www.youtube.com/watch?v=3d6DsjIBzJ4",
+      "title": "Taylor series | Chapter 11, Essence of calculus",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 1339,
+      "upload_date": "2017-05-07",
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "CfW845LNObM",
+      "url": "https://www.youtube.com/watch?v=CfW845LNObM",
+      "title": "The other way to visualize derivatives | Chapter 12, Essence of calculus",
+      "channel": "3Blue1Brown",
+      "channel_id": "UCYO_jab_esuFRV4b17AJtAw",
+      "duration": 866,
+      "upload_date": "2018-05-19",
+      "lists": [
+        "math"
+      ],
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "yehFW3q0Otk",
+      "url": "https://www.youtube.com/watch?v=yehFW3q0Otk",
+      "title": "Looking for Dark Matter with LIGO, with Dr. Brian Keating",
+      "channel": "Richard Behiel",
+      "channel_id": "UCogE_pJuDs_xLtDVcp4W_UA",
+      "duration": 531,
+      "upload_date": "2023-10-19",
+      "size": 184847018,
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "Sj_GSBaUE1o",
+      "url": "https://www.youtube.com/watch?v=Sj_GSBaUE1o",
+      "title": "Electromagnetism as a Gauge Theory",
+      "channel": "Richard Behiel",
+      "channel_id": "UCogE_pJuDs_xLtDVcp4W_UA",
+      "duration": 11520,
+      "upload_date": "2024-07-01",
+      "status": "todo",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "DkH1citHtgs",
+      "url": "https://www.youtube.com/watch?v=DkH1citHtgs",
+      "title": "Superconductivity and the Higgs Field",
+      "channel": "Richard Behiel",
+      "channel_id": "UCogE_pJuDs_xLtDVcp4W_UA",
+      "duration": 17440,
+      "upload_date": "2025-02-15",
+      "status": "todo",
+      "added": "2026-09-30"
+    }
+  ]
+}

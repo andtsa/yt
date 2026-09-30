@@ -1,0 +1,10 @@
+/target
+*.mp4
+*.m4v
+*.mov
+*.mkv
+*.webm
+*.part
+*.ytdl
+*.json.tmp
+/media/
