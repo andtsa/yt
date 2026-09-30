@@ -15,9 +15,8 @@ max_disk_gb = 3
 # A random one is used for each yt-dlp invocation. Empty = no proxy.
 # proxies = ["socks5://127.0.0.1:1080"]
 
-# Command used to run yt-dlp. By default this is the yt-dlp git submodule
-# (run with python3), or `ytdlp` from $PATH if the submodule isn't checked out.
-# ytdlp = "ytdlp"
+# yt-dlp executable. Default: the copy installed by `yt setup`, else yt-dlp on PATH.
+# ytdlp = "/usr/local/bin/yt-dlp"
 # extra_args = ["--embed-subs", "--sub-langs", "en.*"]
 
 # Optional descriptions. A watchlist also exists as soon as any video is in it.

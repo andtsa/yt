@@ -61,3 +61,38 @@ pub fn title_from_path(path: &Path) -> String {
         None => stem.to_string(),
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn ids_from_file_names() {
+        let id = |name: &str| id_from_path(Path::new(name));
+        assert_eq!(
+            id("Laplace？ [j0wJBEZdwLs].mp4").as_deref(),
+            Some("j0wJBEZdwLs")
+        );
+        assert_eq!(
+            id("a [b] [-j8PzkZ70Lg].WEBM").as_deref(),
+            Some("-j8PzkZ70Lg")
+        );
+        assert_eq!(id("x [abc].mp4.part"), None);
+        assert_eq!(id("x [abc].f137.mp4"), None);
+        assert_eq!(id("x [a b].mp4"), None);
+        assert_eq!(id("notes.txt"), None);
+    }
+
+    #[test]
+    fn scans_media_dirs() {
+        let dir = tempfile::tempdir().unwrap();
+        fs::write(dir.path().join("A [aaa].mp4"), b"12345").unwrap();
+        fs::write(dir.path().join("A [aaa].mp4.part"), b"").unwrap();
+        fs::write(dir.path().join("readme.md"), b"").unwrap();
+        let missing = dir.path().join("unplugged");
+        let index = scan(&[missing, dir.path().to_path_buf()]);
+        assert_eq!(index.len(), 1);
+        assert_eq!(index["aaa"].size, 5);
+        assert_eq!(title_from_path(&index["aaa"].path), "A");
+    }
+}

@@ -1,5 +1,7 @@
 use std::collections::BTreeSet;
 use std::fs;
+use std::fs::File;
+use std::fs::OpenOptions;
 use std::path::Path;
 
 use anyhow::Context;
@@ -8,8 +10,6 @@ use serde::Deserialize;
 use serde::Serialize;
 
 use crate::ytdlp::Meta;
-
-pub const LIBRARY_FILE: &str = "library.json";
 
 /// Rough size of a 1080p H.264 download, used until a video has actually been
 /// downloaded once.
@@ -132,30 +132,130 @@ pub struct Library {
 }
 
 impl Library {
-    pub fn load(root: &Path) -> Result<Self> {
-        let path = root.join(LIBRARY_FILE);
+    pub fn load(path: &Path) -> Result<Self> {
         if !path.exists() {
             return Ok(Self::default());
         }
-        let text = fs::read_to_string(&path)?;
+        let text = fs::read_to_string(path)?;
         serde_json::from_str(&text).with_context(|| format!("parsing {}", path.display()))
     }
 
-    pub fn save(&self, root: &Path) -> Result<()> {
-        let path = root.join(LIBRARY_FILE);
+    /// Atomically replace the library file (write to a temp file, then rename).
+    pub fn save(&self, path: &Path) -> Result<()> {
+        if let Some(dir) = path.parent() {
+            fs::create_dir_all(dir)?;
+        }
         let tmp = path.with_extension("json.tmp");
         let mut text = serde_json::to_string_pretty(self)?;
         text.push('\n');
         fs::write(&tmp, text)?;
-        fs::rename(&tmp, &path)?;
+        fs::rename(&tmp, path)?;
         Ok(())
     }
 
-    pub fn index_of(&self, id: &str) -> Option<usize> {
-        self.videos.iter().position(|v| v.id == id)
+    pub fn get(&self, id: &str) -> Option<&Video> {
+        self.videos.iter().find(|v| v.id == id)
     }
+
+    pub fn get_mut(&mut self, id: &str) -> Option<&mut Video> {
+        self.videos.iter_mut().find(|v| v.id == id)
+    }
+}
+
+/// Exclusive lock on the library, held while it is reloaded, changed and saved,
+/// so that concurrent `yt` commands don't overwrite each other's changes.
+/// Released when dropped.
+pub fn lock(path: &Path) -> Result<File> {
+    if let Some(dir) = path.parent() {
+        fs::create_dir_all(dir)?;
+    }
+    let lock_path = path.with_extension("json.lock");
+    let file = OpenOptions::new()
+        .create(true)
+        .truncate(false)
+        .write(true)
+        .open(&lock_path)
+        .with_context(|| format!("opening {}", lock_path.display()))?;
+    file.lock().context("locking the library")?;
+    Ok(file)
 }
 
 pub fn today() -> String {
     chrono::Local::now().format("%Y-%m-%d").to_string()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn video(duration: Option<u64>) -> Video {
+        Video::from_meta(Meta {
+            id: "abc".into(),
+            url: "https://www.youtube.com/watch?v=abc".into(),
+            title: "Title".into(),
+            channel: "Channel".into(),
+            channel_id: None,
+            duration,
+            upload_date: None,
+        })
+    }
+
+    #[test]
+    fn record_position_progresses_to_watched() {
+        let mut v = video(Some(1000));
+        assert!(
+            !v.record_position(2.0, 1000.0),
+            "the first seconds are ignored"
+        );
+        assert!(v.record_position(300.4, 1000.0));
+        assert_eq!((v.status, v.position), (Status::Partial, Some(300)));
+        assert!(
+            !v.record_position(300.9, 1000.0),
+            "same second is not a change"
+        );
+        assert!(v.record_position(960.0, 1000.0));
+        assert_eq!((v.status, v.position), (Status::Watched, None));
+        assert!(
+            !v.record_position(10.0, 1000.0),
+            "rewatching keeps it watched"
+        );
+    }
+
+    #[test]
+    fn near_end_of_short_video() {
+        let mut v = video(Some(100));
+        assert!(v.record_position(40.0, 100.0));
+        assert_eq!(v.status, Status::Partial);
+        assert!(v.record_position(80.0, 100.0));
+        assert_eq!(v.status, Status::Watched);
+    }
+
+    #[test]
+    fn size_estimate() {
+        assert_eq!(video(Some(10)).est_size(), 1_000_000);
+        let mut v = video(Some(10));
+        v.size = Some(42);
+        assert_eq!(v.est_size(), 42);
+        assert_eq!(video(None).est_size(), 0);
+    }
+
+    #[test]
+    fn save_load_roundtrip_with_lock() {
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("sub").join("library.json");
+        let _lock = lock(&path).unwrap();
+        let mut lib = Library::default();
+        lib.videos.push(video(Some(10)));
+        lib.get_mut("abc").unwrap().lists.insert("math".into());
+        lib.save(&path).unwrap();
+        let back = Library::load(&path).unwrap();
+        assert_eq!(back.videos.len(), 1);
+        assert!(back.get("abc").unwrap().lists.contains("math"));
+        assert!(
+            Library::load(&dir.path().join("missing.json"))
+                .unwrap()
+                .videos
+                .is_empty()
+        );
+    }
 }

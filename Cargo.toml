@@ -2,7 +2,14 @@
 name = "youtube-at-home"
 version = "0.1.0"
 edition = "2024"
-description = "we have youtube at home: a local video library and watchlist manager on top of yt-dlp"
+rust-version = "1.89"
+description = "A local library of YouTube videos and watchlists: keep the links, download with yt-dlp only when you want to watch"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+keywords = ["youtube", "yt-dlp", "video", "watchlist", "cli"]
+categories = ["command-line-utilities", "multimedia::video"]
+# repository = "https://github.com/<user>/youtube-at-home"
+include = ["/src", "/tests", "/README.md", "/LICENSE-MIT", "/LICENSE-APACHE"]
 
 [[bin]]
 name = "yt"
@@ -12,6 +19,13 @@ path = "src/main.rs"
 anyhow = "1"
 chrono = { version = "0.4", default-features = false, features = ["clock"] }
 clap = { version = "4", features = ["derive"] }
+directories = "6"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+sha2 = "0.10"
 toml = "0.8"
+ureq = "3"
+which = "8"
+
+[dev-dependencies]
+tempfile = "3"

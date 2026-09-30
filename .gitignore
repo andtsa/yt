@@ -1,4 +1,5 @@
 /target
+/media/
 *.mp4
 *.m4v
 *.mov
@@ -7,4 +8,4 @@
 *.part
 *.ytdl
 *.json.tmp
-/media/
+library.json.lock

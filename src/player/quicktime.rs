@@ -14,13 +14,8 @@ use anyhow::Context;
 use anyhow::Result;
 use anyhow::bail;
 
+use super::Playing;
 use crate::media;
-
-pub struct Doc {
-    pub id: String,
-    pub position: f64,
-    pub duration: f64,
-}
 
 // Guarded by `is running` so that polling never launches QuickTime.
 const LIST_SCRIPT: &str = r#"
@@ -72,7 +67,7 @@ fn osascript(script: &str, args: &[&str]) -> Result<String> {
 }
 
 /// Documents currently open in QuickTime (empty if it isn't running).
-pub fn documents() -> Result<Vec<Doc>> {
+pub fn documents() -> Result<Vec<Playing>> {
     let out = osascript(LIST_SCRIPT, &[])?;
     // AppleScript formats reals with the locale's decimal separator.
     let num = |s: &str| s.trim().replace(',', ".").parse::<f64>().unwrap_or(0.0);
@@ -81,7 +76,7 @@ pub fn documents() -> Result<Vec<Doc>> {
         .filter_map(|line| {
             let mut parts = line.split('\t');
             let id = media::id_from_path(Path::new(parts.next()?))?;
-            Some(Doc {
+            Some(Playing {
                 id,
                 position: num(parts.next()?),
                 duration: num(parts.next()?),
